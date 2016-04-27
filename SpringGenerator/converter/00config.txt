@@ -1,0 +1,6 @@
+		<bean class="converters.Clase1ToStringConverter" />
+		<bean class="converters.StringToClase1Converter" />
+		<bean class="converters.Clase2ToStringConverter" />
+		<bean class="converters.StringToClase2Converter" />
+		<bean class="converters.Clase3ToStringConverter" />
+		<bean class="converters.StringToClase3Converter" />
