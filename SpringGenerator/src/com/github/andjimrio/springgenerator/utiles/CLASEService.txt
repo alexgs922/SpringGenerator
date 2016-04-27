@@ -1,0 +1,45 @@
+package services;
+
+import java.util.Collection;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.fclasey.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import repositories.CLASERepository;
+import domain.CLASE;
+
+@Service
+@Transactional
+public class CLASEService {
+	@Autowired
+	private CLASERepository claseRepository;
+
+	public CLASE findByPrincipal() {
+		UserAccount ua = LoginService.getPrincipal();
+		return findByUserAccount(ua);
+	}
+
+	public CLASE findOne(int id) {
+		return claseRepository.findOne(id);
+	}
+
+	public void save(CLASE a) {
+		Assert.notNull(a);
+		claseRepository.save(a);
+	}
+
+	public Collection<CLASE> findAll() {
+		return claseRepository.findAll();
+	}
+
+
+	public void delete(CLASE clase) {
+		Assert.notNull(clase);
+		claseRepository.delete(clase);
+
+	}
+
+}
